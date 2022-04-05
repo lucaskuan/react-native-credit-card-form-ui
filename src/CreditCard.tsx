@@ -256,9 +256,7 @@ const CreditCard = React.forwardRef<CreditCardType, CreditCardProps>(
         const numberMask = maskChars.join('');
 
         const cvvMask = ''.padStart(code.size, '9');
-        const brandImage = Images.brands[type]
-          ? Images.brands[type]
-          : Images.brands.default;
+        const brandImage = Images.brands.default;
 
         return {
           ...prev,
