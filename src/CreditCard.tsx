@@ -538,7 +538,7 @@ CreditCard.defaultProps = {
 
 const styles = StyleSheet.create({
   cardWrapper: {
-    height: '100%',
+    height: 220,
     maxHeight: 220,
     position: 'relative',
     width: '100%',
