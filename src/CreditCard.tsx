@@ -24,18 +24,6 @@ import CardSide, { CardSideEnum } from './CardSide';
 import CardInput from './CardInput';
 
 const validationSchema = yup.object().shape({
-  holder: yup
-    .string()
-    .defined()
-    .test('is-valid-holder', 'Holder name is invalid', function (
-      holderName: any
-    ) {
-      const { runtime = false } = this.options.context as any;
-      const { isPotentiallyValid, isValid } = cardValidator.cardholderName(
-        holderName
-      );
-      return runtime ? isPotentiallyValid : isValid;
-    }),
   number: yup
     .string()
     .defined()
@@ -276,7 +264,7 @@ const CreditCard = React.forwardRef<CreditCardType, CreditCardProps>(
         if (name === 'number') {
           loadCardConfig(text);
           if (isValid) {
-            focusField(holderInputRef);
+            focusField(expirationInputRef);
           }
         } else if (
           name === 'expiration' &&
